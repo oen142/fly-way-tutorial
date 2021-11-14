@@ -3,6 +3,6 @@ spring:
     hibernate:
       ddl-auto: none
   datasource:
-    url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/db_example
-    username: sa
+    url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/db_example_test
+    username: test
     password: Password#1
