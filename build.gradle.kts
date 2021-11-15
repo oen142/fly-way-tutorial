@@ -67,15 +67,9 @@ flyway {
 
 
 flyway {
-    url = "jdbc:mysql://localhost:3306/flyway"
+    url = "jdbc:mysql://localhost:3306/"
+    schemas = arrayOf("flyway")
     user = "root"
     password = "test1234"
-    locations = arrayOf("classpath:db/migration")
-}
-
-flyway {
-    url = "jdbc:mysql://localhost:3306/flyway-test"
-    user = "root"
-    password = "test1234"
-    locations = arrayOf("classpath:db/migration")
+//    locations = arrayOf("classpath:db/migration")
 }
