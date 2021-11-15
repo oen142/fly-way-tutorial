@@ -2,11 +2,25 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     id("org.flywaydb.flyway") version "7.8.1"
+
     id("org.springframework.boot") version "2.5.6"
     id("io.spring.dependency-management") version "1.0.11.RELEASE"
     kotlin("jvm") version "1.5.31"
     kotlin("plugin.spring") version "1.5.31"
+
+    kotlin("plugin.jpa") version "1.5.10"
+    kotlin("kapt") version "1.5.10"
 }
+
+
+
+allOpen {
+    annotation("javax.persistence.Entity")
+    annotation("javax.persistence.MappedSuperclass")
+    annotation("javax.persistence.Embeddable")
+}
+
+
 
 group = "com.example"
 version = "0.0.1-SNAPSHOT"
@@ -51,9 +65,17 @@ flyway {
     locations = arrayOf("filesystem: resources / db / migration")
 }*/
 
+
 flyway {
-    url = "jdbc:mysql://localhost:3306/db_example_test"
-    user = "test"
-    password = "Password#1"
-    locations = arrayOf("filesystem:src/test/resources/db/migration")
+    url = "jdbc:mysql://localhost:3306/flyway"
+    user = "root"
+    password = "test1234"
+    locations = arrayOf("classpath:db/migration")
+}
+
+flyway {
+    url = "jdbc:mysql://localhost:3306/flyway-test"
+    user = "root"
+    password = "test1234"
+    locations = arrayOf("classpath:db/migration")
 }
